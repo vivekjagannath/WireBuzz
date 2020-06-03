@@ -22,8 +22,25 @@ var Game = function(canvas, gameWidth, gameHeight){
     this.draw = function (con){
         this.drawTitleText(con);
 
+        this.collisionDetection();
+
         this.levels.buildLevel(this, this.currentLevel, con);
 
         this.object.draw(con);
     };
+
+    this.collisionDetection = function (){
+        if (this.object.y == this.levels.level1[this.object.x]){
+            console.log("you lost");
+        }
+        else if (this.object.y + this.objectHeight == this.levels.level1[this.object.x] + this.wireHeight){
+            console.log("you lost");
+        }
+        else if (this.object.y == this.levels.level1[this.object.x + this.objectWidth]){
+            console.log("you lost");
+        }
+        else if (this.object.y + this.objectHeight == this.levels.level1[this.object.x + this.objectWidth] + this.wireHeight){
+            console.log("you lost");
+        }
+    }
 };
