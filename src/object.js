@@ -5,7 +5,7 @@ var Object = function (game, canvas) {
     this.objectHeight = game.objectHeight;
     this.objectWidth = game.objectWidth;
     this.x = 1;
-    this.y = game.levels.level1[0] - this.objectHeight / 2 + this.wireHeight / 2
+    this.y = game.levels.level1[0] - this.objectHeight / 2 + this.wireHeight / 2;
     this.object = document.getElementById("object_img");
 
     this.draw = function (con) {

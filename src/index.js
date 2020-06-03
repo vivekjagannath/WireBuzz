@@ -4,7 +4,7 @@ var con = canvas.getContext('2d');
 var gameHeight = 600;
 var gameWidth = 1000;
 
-var game = new Game(canvas, gameWidth, gameHeight);
+var game = new Game(canvas, con, gameWidth, gameHeight);
 
 function gameLoop(timestamp) {
     game.draw(con);

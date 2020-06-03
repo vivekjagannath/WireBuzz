@@ -1,6 +1,6 @@
-var GameScreen = { startMenu: 0, level1: 1, gameLost: 2, gameWon: 3 }
+var GameScreen = { startMenu: 0, gameStart: 1, level1: 2, gameLost: 3, gameWon: 4 }
 
-var Game = function (canvas, gameWidth, gameHeight) {
+var Game = function (canvas, con, gameWidth, gameHeight) {
     this.gameHeight = gameHeight;
     this.gameWidth = gameWidth;
     this.objectHeight = 30;
@@ -13,7 +13,7 @@ var Game = function (canvas, gameWidth, gameHeight) {
     this.collision_y = 0;
     this.levels = new Levels();
     this.object = new Object(this, canvas);
-    this.controls = new Controls(this, canvas);
+    this.controls = new Controls(this, canvas, con);
 
     this.drawTitleText = function (con) {
         con.fillStyle = "blue";
@@ -72,6 +72,13 @@ var Game = function (canvas, gameWidth, gameHeight) {
     this.draw = function (con) {
         if (this.gameScreen == GameScreen.startMenu) {
             this.startScreen(con);
+        }
+        else if (this.gameScreen == GameScreen.gameStart) {
+            this.drawTitleText(con);
+            this.levels.buildLevel(this, this.currentLevel, con);
+            this.object.x = 1;
+            this.object.y = game.levels.level1[0] - this.objectHeight / 2 + this.wireHeight / 2;
+            this.object.draw(con);
         }
         else if (this.gameScreen == GameScreen.level1) {
             this.drawTitleText(con);
