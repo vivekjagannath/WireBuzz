@@ -10,6 +10,8 @@ var Game = function(gameWidth, gameHeight){
     this.object = new Object(this);
 
     this.drawTitleText = function (con){
+        con.fillStyle = "blue";
+        con.fillRect(0,0, gameWidth, gameHeight);
         con.fillStyle = "yellow";
         con.font = "75px Monoton";
         con.textAlign = "center";
@@ -18,9 +20,24 @@ var Game = function(gameWidth, gameHeight){
 
     this.draw = function (con){
         this.drawTitleText(con);
+
+        var x = this.collisionDetection();
         
+        if (x){
         this.levels.buildLevel(this, this.currentLevel, con);
         
         this.object.draw(con);
+        }
+        else{
+            console.log("You lost!");
+        }
     }
+
+    this.collisionDetection = function (){
+        if (this.object.y - this.objectHeight / 2 === this.levels.level1[this.object.x - this.objectWidth / 2]){
+            return false;
+        }
+        return true;
+    }
+
 };

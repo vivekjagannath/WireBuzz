@@ -6,4 +6,15 @@ var gameWidth = 1000;
 
 var game = new Game(gameWidth, gameHeight);
 
-game.draw(con);
+canvas.addEventListener("mousemove", function(e){
+    game.object.x = e.clientX;
+    game.object.y = e.clientY;
+});
+
+function gameLoop(timestamp){
+    game.draw(con);
+    
+    requestAnimationFrame(gameLoop);
+}
+
+requestAnimationFrame(gameLoop);
