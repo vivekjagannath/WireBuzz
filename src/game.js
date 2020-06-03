@@ -76,7 +76,7 @@ var Game = function (canvas, con, gameWidth, gameHeight) {
         else if (this.gameScreen == GameScreen.gameStart) {
             this.drawTitleText(con);
             this.levels.buildLevel(this, this.currentLevel, con);
-            this.object.x = 1;
+            this.object.x = 25;
             this.object.y = game.levels.level1[0] - this.objectHeight / 2 + this.wireHeight / 2;
             this.object.draw(con);
         }
