@@ -1,5 +1,3 @@
-import Game from "/src/game";
-
 var canvas = document.getElementById("gameCanvas");
 var con = canvas.getContext('2d');
 
