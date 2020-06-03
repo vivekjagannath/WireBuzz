@@ -85,7 +85,7 @@ var Game = function (canvas, con, gameWidth, gameHeight) {
             this.collisionDetection();
             this.levels.buildLevel(this, this.currentLevel, con);
             this.object.draw(con);
-            if (this.object.x >= 985) {
+            if (this.object.x >= this.gameWidth - 15) {
                 game.gameScreen = GameScreen.gameWon;
                 game.gameWonScreen();
             }
