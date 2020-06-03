@@ -1,15 +1,13 @@
-var Game = function(gameWidth, gameHeight, canLeft, canTop){
+var Game = function(canvas, gameWidth, gameHeight){
     this.gameHeight = gameHeight;
     this.gameWidth = gameWidth;
-    this.canLeft = canLeft;
-    this.canTop = canTop;
     this.objectHeight = 30;
     this.objectWidth = 10;
     this.wireWidth = 1;
     this.wireHeight = 5;
     this.currentLevel = 1;
     this.levels = new Levels();
-    this.object = new Object(this);
+    this.object = new Object(this, canvas);
     this.controls = new Controls(this);
 
     this.drawTitleText = function (con){

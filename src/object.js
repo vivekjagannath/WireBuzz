@@ -1,4 +1,4 @@
-var Object = function (game) {
+var Object = function (game, canvas) {
     this.gameHeight = game.gameHeight;
     this.gameWidth = game.gameWidth;
     this.wireHeight = game.wireHeight;
@@ -13,7 +13,7 @@ var Object = function (game) {
     };
 
     this.update = function (x_coord, y_coord){
-        this.x = x_coord - this.objectWidth / 2 - game.canLeft;
-        this.y = y_coord - this.objectHeight / 2 - game.canTop;
+        this.x = x_coord - this.objectWidth / 2 - canvas.offsetLeft;
+        this.y = y_coord - this.objectHeight / 2 - canvas.offsetTop;
     };
 };
