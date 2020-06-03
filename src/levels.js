@@ -8,5 +8,5 @@ var Levels = function(){
                 con.fillRect(i, this.level1[i], game.wireWidth, game.wireHeight);
             }
         }
-    }
+    };
 };

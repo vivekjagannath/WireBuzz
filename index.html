@@ -3,6 +3,10 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
     <style>
+        body {
+            background-image: url(./lightning.png);
+        }
+
         #gameCanvas {
             width: 1000px;
             height: 600px;
@@ -10,7 +14,7 @@
             background-color: blue;
         }
 
-        img {
+        #object_img {
             display: none;
         }
 
@@ -28,6 +32,7 @@
         <canvas id="gameCanvas" width=1000 height=600></canvas>
         <script src="./src/object.js"></script>
         <script src="./src/levels.js"></script>
+        <script src="./src/controls.js"></script>
         <script src="./src/game.js"></script>
         <script src="./src/index.js"></script>
     </div>

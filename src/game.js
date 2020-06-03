@@ -1,6 +1,8 @@
-var Game = function(gameWidth, gameHeight){
+var Game = function(gameWidth, gameHeight, canLeft, canTop){
     this.gameHeight = gameHeight;
     this.gameWidth = gameWidth;
+    this.canLeft = canLeft;
+    this.canTop = canTop;
     this.objectHeight = 30;
     this.objectWidth = 10;
     this.wireWidth = 1;
@@ -8,6 +10,7 @@ var Game = function(gameWidth, gameHeight){
     this.currentLevel = 1;
     this.levels = new Levels();
     this.object = new Object(this);
+    this.controls = new Controls(this);
 
     this.drawTitleText = function (con){
         con.fillStyle = "blue";
@@ -16,28 +19,13 @@ var Game = function(gameWidth, gameHeight){
         con.font = "75px Monoton";
         con.textAlign = "center";
         con.fillText("Wire Buzz", this.gameWidth / 2, 100);
-    }
+    };
 
     this.draw = function (con){
         this.drawTitleText(con);
 
-        var x = this.collisionDetection();
-        
-        if (x){
         this.levels.buildLevel(this, this.currentLevel, con);
-        
+
         this.object.draw(con);
-        }
-        else{
-            console.log("You lost!");
-        }
-    }
-
-    this.collisionDetection = function (){
-        if (this.object.y - this.objectHeight / 2 === this.levels.level1[this.object.x - this.objectWidth / 2]){
-            return false;
-        }
-        return true;
-    }
-
+    };
 };
