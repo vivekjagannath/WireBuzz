@@ -6,6 +6,8 @@ var Controls = function (game, canvas, con) {
             return;
         }
         else {
+            game.object.x = .015 * game.gameWidth;
+            game.object.y = ((0.5 * game.gameHeight) - (game.object.objectHeight / 2)) + (game.path.pathHeight / 2);
             game.path.buildPath(game.currentLevel);
             game.gameScreen = GameScreen.gameOn;
             game.draw(con);

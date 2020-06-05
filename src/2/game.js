@@ -9,6 +9,7 @@ var Game = function (canvas, con) {
     this.gameScreen = GameScreen.startMenu;
     this.collide = false;
     this.currentLevel = 1;
+    this.zapp = document.getElementById("zapp_img");
 
     this.drawTitleText = function (con) {
         con.fillStyle = "blue";
@@ -29,7 +30,7 @@ var Game = function (canvas, con) {
         con.fillText("Tap on the screen to start!", this.gameWidth / 2, .8 * this.gameHeight);
     };
 
-    this.gameLostScreen = function (con) {
+    this.gameLostScreen = function (con, x, y) {
         this.drawTitleText(con);
         con.fillStyle = 'rgba(0,0,0,0.5)';
         con.fillRect(0, 0, this.gameWidth, this.gameHeight);
@@ -39,7 +40,9 @@ var Game = function (canvas, con) {
         con.fillText("Tap on the screen to restart!", this.gameWidth / 2, .8 * this.gameHeight);
         con.font = "80px Ariel";
         con.fillText("YOU LOST!", this.gameWidth / 2, this.gameHeight / 2);
+        this.path.drawPath(con);
         this.path.path = [];
+        con.drawImage(this.zapp, x - 25, y - 25);
     };
 
     this.gameWonScreen = function (con) {
@@ -64,20 +67,12 @@ var Game = function (canvas, con) {
         if (this.gameScreen == GameScreen.startMenu) {
             this.startScreen(con);
         }
-        else if (this.gameScreen == GameScreen.gameLost) {
-            this.gameLostScreen(con);
-            this.currentLevel = 1;
-            this.object.x = .015 * this.gameWidth;
-            this.object.y = ((0.5 * this.gameHeight) - (this.object.objectHeight / 2)) + (this.path.pathHeight / 2);
-        }
         else if (this.gameScreen == GameScreen.gameWon) {
             this.gameWonScreen(con);
         }
         else if (this.gameScreen == GameScreen.gameOn) {
             this.drawTitleText(con);
-            if (this.collide) {
-                this.gameScreen = GameScreen.gameLost;
-            }
+            this.collisionDetection(con);
             if (this.object.x >= .98 * this.gameWidth){
                 this.gameScreen = GameScreen.gameWon;
             }
@@ -86,21 +81,25 @@ var Game = function (canvas, con) {
         }
     };
 
-    this.collisionDetection = function () {
-        if (this.object.y >= this.path.path[this.object.x] - 6) {
-            this.collide = true;
+    this.declareLost = function (con, x, y){
+        this.currentLevel = 1;
+        this.gameScreen = GameScreen.gameLost;
+        this.gameLostScreen(con, x, y);
+        return;
+    };
+
+    this.collisionDetection = function (con) {
+        if (this.object.y >= this.path.path[this.object.x] - 5) {
+            this.declareLost(con, this.object.x, this.object.y);
         }
-        else if (this.object.y >= this.path.path[this.object.x + this.object.objectWidth] - 6) {
-            this.collide = true;
+        else if (this.object.y >= this.path.path[this.object.x + this.object.objectWidth] - 5) {
+            this.declareLost(con, this.object.x + this.object.objectWidth, this.object.y);
         }
-        else if (this.object.y + this.object.objectHeight <= this.path.path[this.object.x] + this.path.pathHeight + 6) {
-            this.collide = true;
+        else if (this.object.y + this.object.objectHeight <= this.path.path[this.object.x] + this.path.pathHeight + 5) {
+            this.declareLost(con, this.object.x, this.object.y + this.object.objectHeight);
         }
-        else if (this.object.y + this.object.objectHeight <= this.path.path[this.object.x + this.object.objectWidth] + this.path.pathHeight + 6) {
-            this.collide = true;
-        }
-        else {
-            this.collide = false;
+        else if (this.object.y + this.object.objectHeight <= this.path.path[this.object.x + this.object.objectWidth] + this.path.pathHeight + 5) {
+            this.declareLost(con, this.object.x + this.object.objectWidth, this.object.y + this.objectHeight);
         }
     };
 };

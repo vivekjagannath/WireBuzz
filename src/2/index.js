@@ -7,7 +7,6 @@ canvas.width = 1000;
 var game = new Game(canvas, con);
 
 function gameLoop(timestamp) {
-    game.collisionDetection();
     game.draw(con);
     requestAnimationFrame(gameLoop);
 }
