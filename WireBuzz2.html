@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(./lightning.png);
+        }
+
+        #gameCanvas {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border: 1px solid black;
+            margin-left: 15%;
+            margin-top: 5%;
+        }
+
+        img {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="object_img" src="./object.png"></img>
+    <img id="zapp_img" src="./lightning.png"></img>
+    <canvas id="gameCanvas"></canvas>
+    <script src="./src/2/object.js"></script>
+    <script src="./src/2/path.js"></script>
+    <script src="./src/2/controls.js"></script>
+    <script src="./src/2/game.js"></script>
+    <script src="./src/2/index.js"></script>
+</body>
+
+</html>
