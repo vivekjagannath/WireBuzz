@@ -11,7 +11,6 @@ var Object = function (game, canvas){
 
     this.update = function (x_coord, y_coord) {
         this.x += x_coord;
-        console.log(this.x);
         this.y += y_coord;
     };
 };

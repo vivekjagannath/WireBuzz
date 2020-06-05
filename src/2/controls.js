@@ -24,11 +24,21 @@ var Controls = function (game, canvas, con) {
     };
 
     document.onkeydown = function (e) {
-        if (e.keyCode === 81){
-            game.object.update(-3, 0);
-        }
-        else if (e.keyCode === 87){
-            game.object.update(3, 0);
+        switch (e.keyCode){
+            case 81:
+                game.object.update(-3,0);
+                break;
+            case 87:
+                game.object.update(3,0);
+                break;
+            case 79:
+                game.object.update(0,3);
+                break;
+            case 80:
+                game.object.update(0,-3);
+                break;
+            default:
+                break;
         }
     };
 };

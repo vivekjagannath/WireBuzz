@@ -7,6 +7,7 @@ var Game = function(canvas, con) {
     this.object = new Object(this, canvas);
     this.controls = new Controls(this, canvas, con);
     this.gameScreen = GameScreen.startMenu;
+    this.collide = false;
 
     this.drawTitleText = function (con) {
         con.fillStyle = "blue";
@@ -19,7 +20,30 @@ var Game = function(canvas, con) {
 
     this.draw = function (con) {
         this.drawTitleText(con);
+        if (this.collisionDetection() || this.collide == true){
+            con.fillStyle = 'rgba(0,0,0,0.5)'
+            con.fillRect(0,0,this.gameWidth, this.gameHeight);
+            this.collide = true;
+        }
         this.path.drawPath(con);
         this.object.draw(con);
-    }
+    };
+
+    this.collisionDetection = function(){
+        if (this.object.y >= this.path.path[this.object.x] - 6){
+            return true;
+        }
+        else if (this.object.y >= this.path.path[this.object.x + this.object.objectWidth] - 6){
+            return true;
+        }
+        else if (this.object.y + this.object.objectHeight <= this.path.path[this.object.x] + this.path.pathHeight + 6){
+            return true;
+        }
+        else if (this.object.y + this.object.objectHeight <= this.path.path[this.object.x + this.object.objectWidth] + this.path.pathHeight + 6){
+            return true;
+        }
+        else{
+            return false;
+        }
+    };
 };
