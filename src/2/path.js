@@ -56,6 +56,7 @@ var Path = function (canvas) {
                 min++;
             }
         }
+        this.dir = 0;
         if (game.currentLevel < 3) {
             game.currentLevel++;
             directions = [[-3,0], [3,0], [0,3], [0,-3]];

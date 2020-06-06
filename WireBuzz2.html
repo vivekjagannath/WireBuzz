@@ -7,24 +7,48 @@
             background-image: url(./lightning.png);
         }
 
+        #canvas_div {
+            height: 75%;
+            width: 100%;
+        }
+
         #gameCanvas {
             position: absolute;
             width: 50%;
             height: 70%;
             border: 1px solid black;
             margin-left: 25%;
-            margin-top: 5%;
+        }
+
+        #controlButtons {
+            width: 50%;
+            height: 20%;
+            border: 1px solid black;
+            margin: auto;
+            background-color: black;
         }
 
         @media(max-width: 768px) {
-            #gameCanvas { 
-                width: 70%;
-                margin-left: 15%;
+            #gameCanvas {
+                width: 80%;
+                margin-left: 10%;
+            }
+
+            #controlButtons {
+                width: 80%;
+                margin-left: 10%;
             }
         }
 
         img {
             display: none;
+        }
+
+        .conBtn{
+            width: 23%;
+            height: 90%;
+            border: 1px solid black;
+            margin: 0.5%;
         }
     </style>
 </head>
@@ -32,7 +56,15 @@
 <body>
     <img id="object_img" src="./object.png"></img>
     <img id="zapp_img" src="./lightning.png"></img>
-    <canvas id="gameCanvas"></canvas>
+    <div id="canvas_div">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <div id="controlButtons">
+        <button id="conBtn1" class="conBtn"></button>
+        <button id="conBtn2" class="conBtn"></button>
+        <button id="conBtn3" class="conBtn"></button>
+        <button id="conBtn4" class="conBtn"></button>
+    </div>
     <script src="./src/2/object.js"></script>
     <script src="./src/2/path.js"></script>
     <script src="./src/2/controls.js"></script>

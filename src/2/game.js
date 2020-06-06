@@ -22,8 +22,6 @@ var Game = function (canvas, con) {
 
     this.startScreen = function (con) {
         this.drawTitleText(con);
-        con.fillStyle = 'rgba(0,0,0,0.5)';
-        con.fillRect(0, 0, this.gameWidth, this.gameHeight);
         con.fillStyle = "white";
         con.font = "40px Ariel";
         con.textAlign = "center";

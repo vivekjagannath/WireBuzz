@@ -4,13 +4,15 @@ var Object = function (game, canvas) {
     this.x = .015 * canvas.width;
     this.y = ((0.5 * canvas.height) - (this.objectHeight / 2)) + (game.path.pathHeight / 2);
     this.object = document.getElementById("object_img");
+    this.diffx = 0;
+    this.diffy = 0;
 
     this.draw = function (con) {
         con.drawImage(this.object, this.x, this.y, this.objectWidth, this.objectHeight);
     };
 
-    this.update = function (x_coord, y_coord) {
-        this.x += x_coord;
-        this.y += y_coord;
+    this.update = function (xDiff, yDiff) {
+        this.x += xDiff;
+        this.y += yDiff;
     };
 };
