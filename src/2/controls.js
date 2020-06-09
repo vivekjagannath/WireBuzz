@@ -34,19 +34,19 @@ var Controls = function (game, canvas, con) {
 
     document.onkeydown = function (e) {
         switch (e.keyCode) {
-            case 81:
+            case 37:
                 game.object.diffx = directions[0][0];
                 game.object.diffy = directions[0][1];
                 break;
-            case 87:
+            case 39:
                 game.object.diffx = directions[1][0];
                 game.object.diffy = directions[1][1];
                 break;
-            case 79:
+            case 40:
                 game.object.diffx = directions[2][0];
                 game.object.diffy = directions[2][1];
                 break;
-            case 80:
+            case 38:
                 game.object.diffx = directions[3][0];
                 game.object.diffy = directions[3][1];
                 break;
