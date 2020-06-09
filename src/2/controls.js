@@ -1,4 +1,4 @@
-var directions = [[-3,0], [3,0], [0,3], [0,-3]];
+var directions = [[-3, 0], [3, 0], [0, 3], [0, -3]];
 
 btn1 = document.getElementById("conBtn1");
 btn2 = document.getElementById("conBtn2");
@@ -19,54 +19,124 @@ var Controls = function (game, canvas, con) {
         }
     };
 
-    document.ontouchstart = function () {
-        if (game.gameScreen == GameScreen.level1) {
+    canvas.ontouchstart = function () {
+        if (game.gameScreen == GameScreen.gameOn) {
             return;
         }
-        else if (game.gameScreen == GameScreen.gameStart) {
-            if (game.gameScreen == GameScreen.gameStart) {
-                if (e.touches[0].pageX - canvas.offsetLeft >= game.object.x && e.touches[0].pageX - canvas.offsetLeft <= game.object.x + game.objectWidth && e.touches[0].pageY - canvas.offsetTop >= game.object.y && e.touches[0].pageY - canvas.offsetTop <= game.object.y + game.objectHeight) {
-                    game.gameScreen = GameScreen.level1;
-                    game.draw(con);
-                }
-            }
+        else {
+            game.object.x = .015 * game.gameWidth;
+            game.object.y = ((0.5 * game.gameHeight) - (game.object.objectHeight / 2)) + (game.path.pathHeight / 2);
+            game.path.buildPath(game.currentLevel);
+            game.gameScreen = GameScreen.gameOn;
+            game.draw(con);
         }
-        game.gameScreen = GameScreen.gameStart;
-        game.draw(con);
     };
 
     document.onkeydown = function (e) {
         switch (e.keyCode) {
             case 81:
-                game.object.update(directions[0][0], directions[0][1]);
+                game.object.diffx = directions[0][0];
+                game.object.diffy = directions[0][1];
                 break;
             case 87:
-                game.object.update(directions[1][0], directions[1][1]);
+                game.object.diffx = directions[1][0];
+                game.object.diffy = directions[1][1];
                 break;
             case 79:
-                game.object.update(directions[2][0], directions[2][1]);
+                game.object.diffx = directions[2][0];
+                game.object.diffy = directions[2][1];
                 break;
             case 80:
-                game.object.update(directions[3][0], directions[3][1]);
+                game.object.diffx = directions[3][0];
+                game.object.diffy = directions[3][1];
                 break;
             default:
                 break;
         }
     };
 
-    btn1.onclick = function (){
-        game.object.update(directions[0][0], directions[0][1]);
+    document.onkeyup = function () {
+        game.object.diffx = 0;
+        game.object.diffy = 0;
     };
 
-    btn2.onclick = function (){
-        game.object.update(directions[1][0], directions[1][1]);
+    btn1.onmousedown = function () {
+        game.object.diffx = directions[0][0];
+        game.object.diffy = directions[0][1];
     };
 
-    btn3.onclick = function (){
-        game.object.update(directions[2][0], directions[2][1]);
+    btn2.onmousedown = function () {
+        game.object.diffx = directions[1][0];
+        game.object.diffy = directions[1][1];
     };
 
-    btn4.onclick = function (){
-        game.object.update(directions[3][0], directions[3][1]);
+    btn3.onmousedown = function () {
+        game.object.diffx = directions[2][0];
+        game.object.diffy = directions[2][1];
+    };
+
+    btn4.onmousedown = function () {
+        game.object.diffx = directions[3][0];
+        game.object.diffy = directions[3][1];
+    };
+
+    btn1.onmouseup = function () {
+        game.object.diffx = 0;
+        game.object.diffy = 0;
+    };
+
+    btn2.onmouseup = function () {
+        game.object.diffx = 0;
+        game.object.diffy = 0;
+    };
+
+    btn3.onmouseup = function () {
+        game.object.diffx = 0;
+        game.object.diffy = 0;
+    };
+
+    btn4.onmouseup = function () {
+        game.object.diffx = 0;
+        game.object.diffy = 0;
+    };
+
+    btn1.ontouchstart = function () {
+        game.object.diffx = directions[0][0];
+        game.object.diffy = directions[0][1];
+    };
+
+    btn2.ontouchstart = function () {
+        game.object.diffx = directions[1][0];
+        game.object.diffy = directions[1][1];
+    };
+
+    btn3.ontouchstart = function () {
+        game.object.diffx = directions[2][0];
+        game.object.diffy = directions[2][1];
+    };
+
+    btn4.ontouchstart = function () {
+        game.object.diffx = directions[3][0];
+        game.object.diffy = directions[3][1];
+    };
+
+    btn1.ontouchend = function () {
+        game.object.diffx = 0;
+        game.object.diffy = 0;
+    };
+
+    btn2.ontouchend = function () {
+        game.object.diffx = 0;
+        game.object.diffy = 0;
+    };
+
+    btn3.ontouchend = function () {
+        game.object.diffx = 0;
+        game.object.diffy = 0;
+    };
+
+    btn4.ontouchend = function () {
+        game.object.diffx = 0;
+        game.object.diffy = 0;
     };
 };

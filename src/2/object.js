@@ -12,7 +12,7 @@ var Object = function (game, canvas) {
     };
 
     this.update = function (xDiff, yDiff) {
-        this.x += xDiff;
-        this.y += yDiff;
+        this.x += this.diffx;
+        this.y += this.diffy;
     };
 };

@@ -40,6 +40,8 @@ var Game = function (canvas, con) {
         con.fillText("YOU LOST!", this.gameWidth / 2, this.gameHeight / 2);
         this.path.drawPath(con);
         this.path.path = [];
+        this.object.diffx = 0;
+        this.object.diffy = 0;
         con.drawImage(this.zapp, x - 25, y - 25);
     };
 
@@ -75,6 +77,7 @@ var Game = function (canvas, con) {
                 this.gameScreen = GameScreen.gameWon;
             }
             this.path.drawPath(con);
+            this.object.update();
             this.object.draw(con);
         }
     };
