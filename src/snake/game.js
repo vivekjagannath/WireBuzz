@@ -19,6 +19,7 @@ var Game = function (canvas, con){
         con.fillStyle = "white";
         con.font = "20px Ariel";
         con.fillText("Tap on the screen to start!", this.gameSide / 2, .9 * this.gameSide);
+        document.getElementById("score").innerHTML = "Voltage : 0";
     };
 
     this.instructionsScreen = function (con){
@@ -111,7 +112,6 @@ var Game = function (canvas, con){
             this.snake.diffx = 0;
             this.snake.diffy = 0;
             this.snake.snake = [];
-            this.score = 0;
             this.snake.snake.push([0,0]);
             this.gameScreen = GameScreen.gameOver;
             this.draw(con);
@@ -121,7 +121,6 @@ var Game = function (canvas, con){
                 this.snake.diffx = 0;
                 this.snake.diffy = 0;
                 this.snake.snake = [];
-                this.score = 0;
                 this.snake.snake.push([0,0]);
                 this.gameScreen = GameScreen.gameOver;
                 this.draw(con);

@@ -100,7 +100,7 @@ var Game = function (canvas, con) {
             this.declareLost(con, this.object.x, this.object.y + this.object.objectHeight);
         }
         else if (this.object.y + this.object.objectHeight <= this.path.path[this.object.x + this.object.objectWidth] + this.path.pathHeight + 5) {
-            this.declareLost(con, this.object.x + this.object.objectWidth, this.object.y + this.objectHeight);
+            this.declareLost(con, this.object.x + this.object.objectWidth, this.object.y + this.object.objectHeight);
         }
     };
 };
