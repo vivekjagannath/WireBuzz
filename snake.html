@@ -1,63 +1,7 @@
 <html>
 
 <head>
-    <style>
-        *{
-            touch-action: manipulation;
-            align-items: center;
-        }
-
-        #canvasDiv {
-            margin: auto;
-            height: 70vh;
-            width: 45vh;
-        }
-
-        #gameCanvas {
-            position: absolute;
-            text-align: center;
-            height: 45vh;
-            width: 45vh;
-            border: 1px solid black;
-        }
-
-        #controlButtons {
-            margin: auto;
-            width: 45vh;
-            height: 25vh;
-            border: 1px solid black;
-            background-color: black;
-        }
-
-        .conBtn {
-            width: 30%;
-            height: 30%;
-            border: 1px solid black;
-            margin: 0.5%;
-        }
-
-        #conBtn4{
-            margin-left: 35%;
-        }
-
-        #conBtn1{
-            margin-left: 2%;
-            margin-right: 15%;
-        }
-
-        #conBtn2{
-            margin-left: 20%;
-            margin-right: 2%;
-        }
-
-        #conBtn3{
-            margin-left: 35%;
-        }
-
-        img{
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/Snake.css" />
 </head>
 
 <body>
@@ -69,7 +13,7 @@
         <canvas id="gameCanvas"></canvas>
     </div>
     <div id="controlButtons">
-        <button id="conBtn4" class="conBtn">up</button>
+        <button id="conBtn4" class="conBtn">up</button> 
         <br>
         <button id="conBtn1" class="conBtn">left</button>
         <button id="conBtn2" class="conBtn">right</button>

@@ -1,0 +1,51 @@
+*{
+    touch-action: manipulation;
+}
+
+body {
+    background-image: url(./lightning.png);
+}
+
+#canvas_div {
+    height: 75%;
+    width: 100%;
+}
+
+#gameCanvas {
+    position: absolute;
+    width: 50%;
+    height: 70%;
+    border: 1px solid black;
+    margin-left: 25%;
+}
+
+#controlButtons {
+    width: 50%;
+    height: 20%;
+    border: 1px solid black;
+    margin: auto;
+    background-color: black;
+}
+
+@media(max-width: 1000px) {
+    #gameCanvas {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    #controlButtons {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+img {
+    display: none;
+}
+
+.conBtn{
+    width: 23%;
+    height: 90%;
+    border: 1px solid black;
+    margin: 0.5%;
+}
