@@ -1,6 +1,6 @@
 var Snake = function (game) {
     this.gameSide = game.gameSide;
-    this.side = 10;
+    this.side = 20;
     this.diffx = 0;
     this.diffy = 0;
     this.snake = [];
