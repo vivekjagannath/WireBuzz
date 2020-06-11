@@ -29,13 +29,13 @@ var Game = function (canvas, con){
         con.font = "80px Ariel";
         con.textAlign = "center";
         con.fillText("Instructions:", this.gameSide / 2, .2 * this.gameSide);
-        con.font = "20px Ariel";
+        con.font = "18px Ariel";
         con.fillText("1. Use arrow keys or the controls below to move the wire.", this.gameSide / 2, .3 * this.gameSide);
         con.fillText("2. Collecting batteries increases length and voltage by 50.", this.gameSide / 2, .4 * this.gameSide);
         con.fillText("3. Going into walls reduces voltage to 0.", this.gameSide / 2, .5 * this.gameSide);
         con.fillText("4. Collecting resistors reduces length and voltage by 100.", this.gameSide / 2, .6 * this.gameSide);
         con.fillText("5. Wire contacting itself causes short- circuit.", this.gameSide / 2, .7 * this.gameSide);
-        con.font = "20px Ariel";
+        con.font = "18px Ariel";
         con.fillText("Tap on the screen to start!", this.gameSide / 2, .9 * this.gameSide);
     };
 
