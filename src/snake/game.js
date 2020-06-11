@@ -100,7 +100,7 @@ var Game = function (canvas, con){
 
     this.deathCheck = function () {
         if (this.snake.snake.length == 0){
-            this.snake.diffx = 0;
+            this.snake.diffx = this.snake.side;
             this.snake.diffy = 0;
             this.score = 0;
             this.snake.snake.push([0,0]);
@@ -109,7 +109,7 @@ var Game = function (canvas, con){
         }
 
         if (this.snake.snake[this.snake.snake.length -1][0] < 0 || this.snake.snake[this.snake.snake.length -1][0] > this.gameSide || this.snake.snake[this.snake.snake.length -1][1] < 0 || this.snake.snake[this.snake.snake.length -1][1] > this.gameSide){
-            this.snake.diffx = 0;
+            this.snake.diffx = this.snake.side;
             this.snake.diffy = 0;
             this.snake.snake = [];
             this.snake.snake.push([0,0]);
@@ -118,7 +118,7 @@ var Game = function (canvas, con){
         }
         for (let i = 0; i < this.snake.snake.length - 1; i++){
             if (this.snake.snake[this.snake.snake.length - 1][0] == this.snake.snake[i][0] && this.snake.snake[this.snake.snake.length -1][1] == this.snake.snake[i][1]){
-                this.snake.diffx = 0;
+                this.snake.diffx = this.snake.side;
                 this.snake.diffy = 0;
                 this.snake.snake = [];
                 this.snake.snake.push([0,0]);
